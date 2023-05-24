@@ -1,0 +1,35 @@
+pipeline {
+    agent any
+    tools{
+        maven 'maven 3.8.6'
+    }
+    stages {
+        stage('Checkout') {
+            steps {
+                checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/swathi-1996/project-3.git']])
+            }
+        }    
+        stage('Build') {
+            steps {
+                sh 'mvn clean package'
+            }
+       }
+        stage('build docker image'){
+            steps{
+                sh 'docker build -t swa .'
+            }
+        }
+        stage('build container'){
+            steps{
+                sh 'docker run -itd -p 8080:8080 --name c4 swa'
+            }
+        }
+       stage ('sonarqube analysis') {
+             steps{
+                    withSonarQubeEnv('sonarqube 9.6.1')  {
+                           sh 'mvn sonar:sonar'
+                  }
+           }
+       }
+   }
+}
