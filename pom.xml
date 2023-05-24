@@ -38,8 +38,8 @@
         </snapshotRepository>
     </distributionManagement>
     <properties>
-      <sonar.host.url>http://3.110.207.186:9000/</sonar.host.url>
-      <sonar.login>squ_803f8bc9145b255963e1c9ddaddb581e96e99865</sonar.login>
+      <sonar.host.url>http://13.127.246.226:9000/</sonar.host.url>
+      <sonar.login>squ_6b04e630be18e9fab21b56e5035185d79e9a4abf</sonar.login>
      </properties>
   <dependencies>
   	<dependency>
