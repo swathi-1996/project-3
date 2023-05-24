@@ -1,0 +1,37 @@
+pipeline {
+    agent any
+    tools{
+        maven 'maven 3.8.6'
+    }
+    stages {
+        stage('Checkout') {
+            steps {
+                checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/swathi-1996/project-3.git']])
+            }
+        }    
+        stage('Build') {
+            steps {
+                sh 'mvn clean package'
+            }
+       }
+        stage('upload war to nexus') {
+            steps {
+               nexusArtifactUploader artifacts: [
+                   [
+                     artifactId: 'studentapp',
+                     classifier: '', 
+                     file: 'target/studentapp-2.5.war',
+                     type: 'war'
+                   ]
+                ], 
+                      credentialsId: '35e7a550-aaf5-4fac-9a18-7abbfffba08d', 
+                      groupId: 'myapp',
+                      nexusUrl: '172.31.33.253', 
+                      nexusVersion: 'nexus3', 
+                      protocol: 'http', 
+                      repository: 'p3-release',
+                      version: '2.5'   
+            }
+        }
+    }
+}
