@@ -28,12 +28,12 @@
    <distributionManagement>
         <repository>
             <id>nexus</id>
-            <name>p3-release nexus repository</name>
+            <name>p3-release</name>
             <url>http://65.2.167.45:9980/swathi/repository/p3-release/</url>
         </repository>
         <snapshotRepository>
             <id>nexus</id>
-            <name>p3-snapshot nexus repository</name>
+            <name>p3-snapshot</name>
             <url>http://65.2.167.45:9980/swathi/repository/p3-snapshot/</url>
         </snapshotRepository>
     </distributionManagement>
