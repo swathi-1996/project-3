@@ -23,7 +23,7 @@
           <failOnMissingWebXml>false</failOnMissingWebXml>
         </configuration>
       </plugin>
-</plugins>
+    </plugins>
   </build>
    <distributionManagement>
         <repository>
@@ -38,8 +38,8 @@
         </snapshotRepository>
     </distributionManagement>
     <properties>
-      <sonar.host.url>http://13.127.246.226:9000/</sonar.host.url>
-      <sonar.login>squ_6b04e630be18e9fab21b56e5035185d79e9a4abf</sonar.login>
+      <sonar.host.url>http://13.126.173.138:9000/</sonar.host.url>
+      <sonar.login>squ_1beed99bbc35846791800d787da89a7245d9742e</sonar.login>
      </properties>
   <dependencies>
   	<dependency>
